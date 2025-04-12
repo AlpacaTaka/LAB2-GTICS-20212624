@@ -1,0 +1,50 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Listar Seguros</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body class="container mt-5">
+<h2 class="mt-4">Listar Seguros</h2>
+
+<div class="mb-3">
+  <a href="/complejos/new" class="btn btn-primary">Agregar Elemento</a>
+</div>
+
+
+<table class="table table-bordered">
+  <thead class="table-light">
+  <tr>
+    <th>#</th>
+    <th>Modelo</th>
+    <th>Color</th>
+    <th>Kilometraje</th>
+    <th>Sede</th>
+    <th>Costo x Dia</th>
+    <th>Editar</th>
+    <th>Eliminar</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="auto : ${autoList}">
+    <td th:text="${auto.id}">1</td>
+    <td th:text="${auto.modelo}">Nombre</td>
+    <td th:text="${auto.color}">Dirección</td>
+    <td th:text="${complejo.sector != null ? complejo.sector.nombre : '---'}">Sector</td>
+    <td th:text="${complejo.numeroSoporte}">Soporte</td>
+    <td th:text="${complejo.latitud}">Lat</td>
+    <td><a th:href="@{/complejos/delete(id=${complejo.id})}" class="btn btn-sm btn-danger"
+           onclick="return confirm('¿Deseas Eliminar?')">Borrar</a></td>
+    <td>
+      <a th:href="@{/complejos/delete(id=${complejo.id})}" class="btn btn-sm btn-danger"
+         onclick="return confirm('¿Deseas Eliminar?')">Borrar</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
